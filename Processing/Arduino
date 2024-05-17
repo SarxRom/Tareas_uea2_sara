@@ -1,0 +1,37 @@
+// botones y perillas
+// asignamos botones y perillas
+int botonPush1 = 2;
+int botonPush2 = 3;
+int pot1 = A0;
+
+// asignamos valores de potenciometros
+int vPot1 = 0;
+
+// variable de estado de botón
+int estadoBoton1 = 0;
+int estadoBoton2 = 0;
+
+void setup()
+{
+  // asignación de pin de entrada para botoón
+  pinMode(botonPush1, INPUT);
+  pinMode(botonPush2, INPUT);
+  
+  // lectura de serial a 9600 bauds
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  // estados botones push
+  estadoBoton1 = digitalRead(botonPush1);
+  estadoBoton2 = digitalRead(botonPush2);
+  
+  // acción de potenciometros
+  vPot1 = analogRead(pot1);
+  
+  Serial.println(vPot1);
+  Serial.println(estadoBoton1);
+  Serial.println(estadoBoton2);
+  delay(1);
+}
